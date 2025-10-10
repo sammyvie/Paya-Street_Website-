@@ -1,0 +1,111 @@
+/* FOR FRONT DESIGN WEBSITE*/
+body {
+    margin: 0;
+    background-color: #026769; 
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #026769;
+    position: sticky;
+    top: 0;
+    transition: box-shadow 0.3s ease-in-out;
+    z-index: 1000; /* make sure it's on top */
+  }
+  
+  .navbar.scrolled {
+    box-shadow: 0 8px 20px rgba(3, 73, 78, 0.65);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .navbar .logo {
+    margin-top: 20px;
+    
+  }
+
+  .navbar ul {
+    margin-top: 26px;
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight:100;
+    text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847); /* subtle shadow */
+
+}
+  .navbar ul li {
+    display: inline;
+  }
+  .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  /* Hero section */
+  .hero {
+    text-align: center;
+    padding: 5rem 1.5rem;
+  }
+  .hero h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 5.5rem;
+    padding-top: 1rem;
+    margin-top: -5px;  
+    margin-bottom: 1rem;
+    text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
+  }
+
+  .hero hr {
+    height: 4px; /* Adjust this value to control thickness */
+    background-color: white; /* Set the desired color of the line */
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
+  .hero h3 {
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 21px;
+    padding-top: 2rem;
+    margin-top: 20px;  
+    margin-bottom: 4rem;
+    text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
+  }
+  
+  .hero video {
+    width: 100%;              
+    max-width: 900px;        
+    height: auto;           
+    border-radius: 12px;
+    max-width: 200%;        
+    box-shadow: -7px 7px 9px rgba(4, 57, 59, 0.658); 
+  }
+  
+  /* Hide the music iframe */
+#music-frame {
+  width: 0;
+  height: 0;
+  border: 0;
+  position: absolute;
+  left: -9999px; 
+}
+
+
+
+  .footer img {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+
+  }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - Paya Street</title>
+  <link rel="stylesheet" href="/css/intro_signup.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/colored_logo.png">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease-in-out; }
+    body.fade-in { opacity: 1; }
+    body.fade-out { opacity: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="First Name" name="firstName" required>
+      <input type="text" placeholder="Last Name" name="lastName" required>
+      <label>Gender:</label>
+      <label><input type="radio" name="gender" value="Female" required> Female</label>
+      <label><input type="radio" name="gender" value="Male"> Male</label>
+      <textarea placeholder="Address" name="address" required></textarea>
+      <input type="text" placeholder="Contact Number" name="contact" required>
+      <input type="email" name="email" required>
+      <input type="date" name="dob" required>
+      <input type="text" placeholder="Username" name="username" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+    <div class="image-box">
+      <img src="/img/signup_hero.jpg" alt="Sign Up Visual">
+    </div>
+  </div>
+  <div id="output" class="output"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("k5sNQ4Zxa3dB-grlr");
+    window.addEventListener("DOMContentLoaded", () => { document.body.classList.add("fade-in"); });
+
+    const form = document.getElementById("signupForm");
+    const output = document.getElementById("output");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_tm1bfup", "template_t0bp1hr", form)
+        .then(() => {
+          output.innerHTML = "<h3> Your sign-up was submitted and emailed! Redirecting...</h3>";
+          output.style.display = "block";
+          form.reset();
+          setTimeout(() => {
+            document.body.classList.remove("fade-in");
+            document.body.classList.add("fade-out");
+            setTimeout(() => { window.location.href = "/index.html"; }, 600);
+          }, 1200);
+        })
+        .catch((error) => {
+          output.innerHTML = `<h3 style="color:red;"> Submission failed: ${error.text}</h3>`;
+          output.style.display = "block";
+        });
+    });
+  </script>
+</body>
+</html>
