@@ -1,24 +1,23 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paya Street Coffee - Products</title>
-<link rel="stylesheet" href="/css/Product_list.css">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/colored_logo.png">
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-<script>
-    (function(){ emailjs.init("k5sNQ4Zxa3dB-grlr"); })();
-</script>
-<!-- GOOGLE FONT -->
-<link rel="stylesheet" href="/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paya Street Coffee - Products</title>
+    <link rel="stylesheet" href="/css/Product_list.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/colored_logo.png">
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+        (function(){ emailjs.init("k5sNQ4Zxa3dB-grlr"); })();
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
     <div class="logo">
       <a href="/index.html"><img src="/img/logo1.png" alt="Paya Street Logo"></a>
@@ -34,7 +33,6 @@
     </div>
 </nav>
 
-<!-- PRODUCT LIST -->
 <section class="products">
     <div class="product-card">
         <img src="/img_products/Paya_Iced_Latte.png" alt="Paya Iced Latte">
@@ -109,60 +107,128 @@
     </div>
 </section>
 
-<!-- CHECKOUT FORM -->
-<div class="checkout-card">
-    <h2>Checkout</h2>
-    <form id="orderForm">
-        <label for="user_email">Email:</label>
-        <input type="email" name="user_email" id="user_email" required>
+<section class="checkout-section">
+    <div class="header-container">
+        <h1 class="checkout-header">Check Out</h1>
+    </div>
+    
+    <div class="checkout-wrapper">
+        <div class="checkout-layout">
+            <div class="receipt-panel">
+                <h2>Your Order Summary</h2>
+                <div id="cart-items-list" class="items-container">
+                    <p class="empty-msg">Your cart is empty...</p>
+                </div>
+                <div class="receipt-total">
+                    <span>Grand Total:</span>
+                    <span id="display-total">₱0</span>
+                </div>
+            </div>
 
-        <label for="order_details">Order Details:</label>
-        <textarea name="order_details" id="order_details" readonly></textarea>
+            <div class="payment-panel">
+                <h2>Payment Details</h2>
+                <form id="orderForm">
+                    <input type="hidden" name="order_details" id="order_details">
+                    <input type="hidden" name="total_price" id="total_price">
+                    
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="user_email" placeholder="coffee-lover@gmail.com" required>
+                    </div>
 
-        <button type="submit">Place Order</button>
-    </form>
-</div>
+                    <div class="input-group">
+                        <label>Payment Method</label>
+                        <select name="payment_method" required>
+                            <option value="GCash">GCash</option>
+                            <option value="Maya">Maya</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
+                        </select>
+                    </div>
 
-<script>
-let cart = [];
+                    <button type="submit" id="submit-btn">Place Order & Email Receipt</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
-document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", () => {
-        const name = button.dataset.name;
-        const price = button.dataset.price;
-        cart.push(`${name} - ₱${price}`);
-        document.getElementById("order_details").value = cart.join("\n");
-    });
-});
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    emailjs.sendForm("service_bje71hi", "template_o3kisqi", this)
-    .then(() => {
-        alert("Order sent successfully!");
-        cart = [];
-        document.getElementById("order_details").value = "";
-        this.reset();
-    }, (err) => {
-        alert("Failed to send order: " + JSON.stringify(err));
-    });
-});
-
-// Search filter
-document.querySelector(".search-bar input").addEventListener("input", function() {
-    const searchValue = this.value.toLowerCase();
-    document.querySelectorAll(".product-card").forEach(product => {
-        const name = product.querySelector("h3").textContent.toLowerCase();
-        const desc = product.querySelector("p").textContent.toLowerCase();
-        product.style.display = name.includes(searchValue) || desc.includes(searchValue) ? "block" : "none";
-    });
-});
-</script>
-
-<!-- Footer -->
 <section class="footer">
     <a href="/index.html"><img src="/img/Footer.png" alt="Footer Logo"></a>
 </section>
 
+<script>
+    let cart = [];
+    let total = 0;
+
+    // Search filter logic
+    document.querySelector(".search-bar input").addEventListener("input", function() {
+        const searchValue = this.value.toLowerCase();
+        document.querySelectorAll(".product-card").forEach(product => {
+            const name = product.querySelector("h3").textContent.toLowerCase();
+            const desc = product.querySelector("p").textContent.toLowerCase();
+            product.style.display = name.includes(searchValue) || desc.includes(searchValue) ? "flex" : "none";
+        });
+    });
+
+    // Add to cart function
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", () => {
+            const name = button.dataset.name;
+            const price = parseInt(button.dataset.price);
+            cart.push({ name, price });
+            total += price;
+            renderCart();
+        });
+    });
+
+    function renderCart() {
+        const list = document.getElementById("cart-items-list");
+        const totalDisplay = document.getElementById("display-total");
+        const hiddenDetails = document.getElementById("order_details");
+        const hiddenTotal = document.getElementById("total_price");
+
+        if (cart.length === 0) {
+            list.innerHTML = "<p class='empty-msg'>Your cart is empty...</p>";
+        } else {
+            list.innerHTML = cart.map(item => `
+                <div class="item-row">
+                    <span>${item.name}</span>
+                    <span>₱${item.price}</span>
+                </div>
+            `).join("");
+        }
+        totalDisplay.innerText = `₱${total}`;
+        
+        // Prepare string for Email
+        hiddenDetails.value = cart.map(i => `${i.name} (₱${i.price})`).join("\n");
+        hiddenTotal.value = `₱${total}`;
+    }
+
+    // EmailJS Submission
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (cart.length === 0) return alert("Please add coffee to your cart first!");
+
+        const btn = document.getElementById("submit-btn");
+        btn.innerText = "Sending Receipt...";
+        btn.disabled = true;
+
+        // Ensure these IDs match your EmailJS Dashboard exactly
+        emailjs.sendForm("service_bje71hi", "template_o3kisqi", this)
+        .then(() => {
+            alert("☕ Success! Your order receipt has been sent.");
+            cart = [];
+            total = 0;
+            renderCart();
+            this.reset();
+            btn.innerText = "Place Order & Email Receipt";
+            btn.disabled = false;
+        }, (err) => {
+            alert("Gmail API Error: " + (err.text || "Check your EmailJS Connection"));
+            btn.innerText = "Place Order & Email Receipt";
+            btn.disabled = false;
+        });
+    });
+</script>
 </body>
 </html>

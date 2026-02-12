@@ -1,6 +1,4 @@
-/* --------------------
-PRODUCT LISTING
--------------------- */
+/* --- GLOBAL --- */
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -8,35 +6,8 @@ body {
     color: white;
 }
 
-/* --------------------
-   HEADER STYLES
--------------------- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 40px; 
-}
-
-#logo {
-    height: 270px; 
-    width: auto;  
-    display: block;
-}
-
-
-.search-bar input {
-    font-family: "Poppins", sans-serif;
-    color: #004f50;
-    padding: 8px;
-    width: 450px;
-    border: none;
-    border-radius: 5px;
-}
-
-
- /* Navbar */
- .navbar {
+/* --- NAVBAR --- */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,242 +15,162 @@ header {
     background-color: #026769;
     position: sticky;
     top: 0;
-    transition: box-shadow 0.3s ease-in-out;
-    z-index: 1000; 
-    margin-bottom: 2rem;
-  }
-  
-  .navbar.scrolled {
-    box-shadow: 0 8px 20px rgba(3, 73, 78, 0.65);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
-  .navbar .logo {
-    margin-top: 20px;
-    
-  }
+    z-index: 1000;
+}
 
-  .navbar ul {
-    margin-top: 26px;
+.nav-links {
     list-style: none;
     display: flex;
     gap: 4rem;
-    font-size: 18px;
-    font-family: "Poppins", sans-serif;
-    font-weight:100;
-    text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847); 
-
 }
-  .navbar ul li {
-    display: inline;
-  }
-  .navbar ul li a {
+
+.nav-links a {
     text-decoration: none;
     color: white;
     font-weight: 500;
-  }
-  
-  /* Search bar (aligned right) */
+}
+
 .search-bar input {
-    padding: 7px 12px;
+    padding: 8px 12px;
     border-radius: 5px;
     border: none;
-    font-size: 14px;
     width: 300px;
     color: #004f50;
-  }
-  
-/* --------------------
-   PRODUCT GRID
--------------------- */
+}
+
+/* --- PRODUCT GRID --- */
 .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    padding: 55px;    
+    padding: 60px 50px;    
     max-width: 1200px;
     margin: auto;
 }
 
-/* --------------------
-   PRODUCT CARD
--------------------- */
 .product-card {
-    font-family: "Poppins", sans-serif;
     background-color: #004f50;
     border-radius: 15px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    animation: fadeUp 0.6s ease forwards;
-    opacity: 0;
-    transform: translateY(20px);
+    transition: 0.3s;
 }
 
-/* Animation delay for each card */
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.2s; }
-.product-card:nth-child(3) { animation-delay: 0.3s; }
-.product-card:nth-child(4) { animation-delay: 0.4s; }
-.product-card:nth-child(5) { animation-delay: 0.5s; }
-.product-card:nth-child(6) { animation-delay: 0.6s; }
+.product-card img { width: 100%; height: 280px; object-fit: cover; }
+.product-info { padding: 20px; }
+.product-header { display: flex; justify-content: space-between; align-items: baseline; }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.product-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Product image */
-.product-card img {
-    width: 100%;
-    height: 290px;
-    object-fit: cover;
-}
-
-/* --------------------
-   PRODUCT INFO SECTION
--------------------- */
-.product-info {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-/* Title & price row */
-.product-header {
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 9px;
-}
-
-.product-card h3 {
-    font-family: "Poppins", sans-serif;
-    font-size: 21px;
-    margin: 0;
-    font-weight: bold;
-    text-align: left;
-}
-
-.price {
-    font-family: "Poppins", sans-serif;
-    font-weight:300;
-    font-size: 21px;
-}
-
-/* Description text */
-.desc {
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    color: #ddd;
-    text-align: left;
-    font-weight: 200;
-    margin-bottom: auto; 
-}
-
-/* --------------------
-   BUTTON
--------------------- */
 .add-to-cart {
-    font-family: "Poppins", sans-serif;
-    margin-top: 12px;
-    margin-bottom: 20px;
-    padding: 8px 16px;
+    margin-top: 15px;
+    padding: 10px 20px;
     background-color: #009799;
     border: none;
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: flex-start;
+    font-weight: 600;
 }
 
-.add-to-cart:hover {
-    background-color: #00baba;
-    transform: translateY(-2px);
+.add-to-cart:hover { background-color: #00baba; }
+
+/* --- NEW CHECKOUT HEADER (HOMEPAGE STYLE) --- */
+.header-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
-/* Checkout Card */
-.checkout-card {
-    background-color: #094d4d; 
-    color: white;
-    border-radius: 10px;
-    padding: 35px;
-    max-width: 58%;
-    margin: 40px auto;
-    box-shadow: 0 9px 10px rgba(0, 0, 0, 0.2);
+.checkout-header {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 3px solid white; /* Matches Homepage line */
+    padding-bottom: 10px;
 }
 
+/* --- CHECKOUT LAYOUT --- */
+.checkout-wrapper {
+    max-width: 1000px;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
+}
 
-.checkout-card h2 {
-    font-family: "Poppins", sans-serif;
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.receipt-panel, .payment-panel {
+    background-color: #004f50;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.receipt-panel h2, .payment-panel h2 {
+    margin-top: 0;
     margin-bottom: 25px;
-    font-size: 1.5em;
+    font-size: 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
 }
 
-.checkout-card label {
-    font-family: "Poppins", sans-serif;
-    display: block;
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.checkout-card input,
-.checkout-card textarea {
-    font-family: "Poppins", sans-serif;
-    width: 98%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
+.receipt-total {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #00baba;
+}
+
+/* --- FORM STYLES --- */
+.input-group { margin-bottom: 20px; text-align: left; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
     border: none;
-    font-size: 15px;
+    background: #066668;
+    color: white;
+    font-family: inherit;
+    box-sizing: border-box;
 }
 
-.checkout-card textarea {
-    font-family: "Poppins", sans-serif;
-    height: 60px;
-    resize: none;
-}
-
-.checkout-card button {
-    font-family: "Poppins", sans-serif;
+#submit-btn {
+    width: 100%;
     background-color: white;
-    color: #094d4d;
+    color: #004f50;
     border: none;
-    padding: 10px 15px;
-    margin-top: 15px;
-    font-size: 15px;
-    border-radius: 5px;
+    padding: 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
     cursor: pointer;
-    font-weight: bold;
+    transition: 0.3s;
 }
 
-.checkout-card button:hover {
-    background-color: #066668;
-    color: #ddd;
+#submit-btn:hover { background-color: #00baba; color: white; }
+
+/* --- FOOTER --- */
+.footer { text-align: center; padding: 100px 0; }
+.footer img { width: 250px; }
+
+@media (max-width: 850px) {
+    .checkout-layout { grid-template-columns: 1fr; }
+    .products { grid-template-columns: 1fr; }
 }
-
-
-  
-  /* Footer */
-  .footer {
-    text-align: center; 
-  }
-  
-  .footer img {
-    display: inline-block; 
-    margin-top: 15rem;
-    margin-bottom: 10rem;
-    max-width: 100%; 
-    height: auto;
-  }

@@ -103,9 +103,18 @@ body {
 }
 
 
-
-  .footer img {
-    margin-top: 15rem;
-    margin-bottom: 10rem;
-
-  }
+.footer {
+  display: flex;
+  justify-content: center; /* Centers horizontally if using flex */
+  align-items: center;     /* Centers vertically if needed */
+  text-align: center;      /* Centers the image inside the div */
+  width: 100%;             /* Ensures the footer spans the whole width */
+}
+.footer img {
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+  /* Increase this number to make it bigger */
+  width: 250px; 
+  /* height: auto ensures it doesn't get squished */
+  height: auto;
+}
