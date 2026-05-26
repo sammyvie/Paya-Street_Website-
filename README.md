@@ -1,6 +1,6 @@
 Paya Street Café Website
 
-// Authors: Canlas, Marc; Gonzales, Robyn; Gonzales, Samantha Wayne; Mangalino, Kurt Justine
+// Authors: Samantha Gonzales, Canlas Marc, Robyn Gonzales, Mangalino Kurt Justine
 // GitHub: https://github.com/Marc-WD/Final-Paya-Street-Website
 
 Overview
