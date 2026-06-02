@@ -1,58 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paya Street Coffee</title>
-  <link rel="stylesheet" href="/css/landing_page.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/colored_logo.png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/colored_logo.png" />
+
+  <!-- Google Font -->
+   <link rel="stylesheet" href="/css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/landing_page.css" />
 </head>
+
 <body>
 
-  <!-- Navbar -->
+  <!-- ═════════════════ NAVBAR ═════════════════ -->
   <nav class="navbar">
-    <div class="logo"><a href="/index.html"><img src="/img/logo1.png" alt="Logo"></a></div>
-    <ul>
-      <li><a href="/Landing_page.html">Landing Page</a></li>
-      <li><a href="/Feature_Page.html">Feature Page</a></li>
-      <li><a href="/Product_Page.html">Product</a></li>
-      <li><a href="/Contact_Page.html">Contact</a></li>
+
+    <div class="logo">
+      <a href="./index.html">
+        <img src="./img/logo1.png" alt="Paya Street Logo">
+      </a>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./Landing_page.html">Landing Page</a></li>
+      <li><a href="./Feature_Page.html">Feature Page</a></li>
+      <li><a href="./Product_Page.html">Product</a></li>
+      <li><a href="./Contact_Page.html">Contact</a></li>
     </ul>
+
+    <!-- Mobile Hamburger -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
   </nav>
 
-  <!-- Hero Section -->
+  <!-- ═════════════════ HERO ═════════════════ -->
   <section class="hero">
+
     <div class="hero-image">
-      <img src="/img/coffee_hero.png" alt="Hero Coffee">
+      <img src="./img/coffee_hero.png" alt="Hero Coffee">
     </div>
+
     <div class="hero-content">
-      <h1>Affordable Quality Coffee in the Heart of Angeles City</h1>
-      <p>Crafted drinks, cozy spaces, and community favorites — all in one cup.</p>
+      <h1>
+        Affordable Quality Coffee in the Heart of Angeles City
+      </h1>
+
+      <p>
+        Crafted drinks, cozy spaces, and community favorites — all in one cup.
+      </p>
+
       <div class="btn-wrapper">
-        <a href="https://www.facebook.com/payast.coffee" class="btn">Order Now</a>
+        <a
+          href="https://www.facebook.com/payast.coffee"
+          class="btn"
+          target="_blank"
+        >
+          Order Now
+        </a>
       </div>
     </div>
+
   </section>
 
-  <!-- About Section -->
+  <!-- ═════════════════ ABOUT ═════════════════ -->
   <section class="about">
+
     <div class="about-text">
+
       <h2>About Paya Street</h2>
+
       <p>
-        Paya Street Coffee is a small-scale, community-centered coffee shop that opened its Angeles City branch between mid-2023 and 2024. Known for its minimalist interior and inviting atmosphere,
-        Paya Street was founded by Lianna, Marty, and Lester Wayne Evangelista. Their vision? To make premium-quality drinks more accessible and enjoyable for everyone—especially students and young professionals.
+        Paya Street Coffee is a small-scale, community-centered coffee shop that
+        opened its Angeles City branch between mid-2023 and 2024. Known for its
+        minimalist interior and inviting atmosphere, Paya Street was founded by
+        Lianna, Marty, and Lester Wayne Evangelista. Their vision? To make
+        premium-quality drinks more accessible and enjoyable for everyone —
+        especially students and young professionals.
       </p>
+
     </div>
+
   </section>
 
-  <!-- Footer -->
-  <section class="footer">
+  <!-- ═════════════════ PRODUCTS ═════════════════ -->
+  <section class="products">
+
+    <h2>PAYA STREET</h2>
+
+    <p class="products-subtitle">Best Sellers</p>
+
+    <hr>
+
+    <div class="product-grid">
+
+      <div class="card">
+        <img src="./img_products/Paya_Iced_Latte.png" alt="Paya Iced Latte">
+
+        <h3>Paya Iced Latte</h3>
+
+        <p>
+          A light espresso layered with cream milk and a smooth, milky finish.
+        </p>
+
+        <h4>₱120</h4>
+      </div>
+
+      <div class="card">
+        <img src="./img_products/SeaSalt_Cream_Coffee.png" alt="Sea Salt Cream Coffee">
+
+        <h3>Sea Salt Cream Coffee</h3>
+
+        <p>
+          Signature cold brew topped with light and airy salty cream —
+          a sweet-salty contrast.
+        </p>
+
+        <h4>₱135</h4>
+      </div>
+
+      <div class="card">
+        <img src="./img_products/Spanish_Latte.png" alt="Spanish Latte">
+
+        <h3>Spanish Latte</h3>
+
+        <p>
+          A velvety blend of condensed milk and espresso,
+          poured over ice in a frosty cup.
+        </p>
+
+        <h4>₱160</h4>
+      </div>
+
+      <div class="card">
+        <img src="./img_products/Matcha_Latte.png" alt="Matcha Latte">
+
+        <h3>Matcha Latte</h3>
+
+        <p>
+          Finely whisked ceremonial matcha milk,
+          mildly sweetened and vibrantly green.
+        </p>
+
+        <h4>₱135</h4>
+      </div>
+
+      <div class="card">
+        <img src="./img_products/Triple_White_Mocha.png" alt="Triple White Mocha">
+
+        <h3>Triple White Mocha</h3>
+
+        <p>
+          Triple-shot coffee with signature white mocha sauce
+          and perfectly frothed milk.
+        </p>
+
+        <h4>₱165</h4>
+      </div>
+
+      <div class="card">
+        <img src="./img_products/Almond_Jelly.png" alt="Paya Almond Jelly">
+
+        <h3>Paya Almond Jelly</h3>
+
+        <p>
+          A refreshing glass of chilled milk tea
+          with chewy almond jelly and sweet syrup.
+        </p>
+
+        <h4>₱115</h4>
+      </div>
+
+    </div>
+
+  </section>
+
+    <!-- ═════════════════ COMMUNITY ═════════════════ -->
+  <section class="community">
+
+    <div class="community-block">
+
+      <img src="./img/Purpose1.png" alt="Paya Street storefront">
+
+      <div class="text">
+
+        <span class="eyebrow">Our Story</span>
+
+        <h2>More Than a Cup</h2>
+
+        <p>
+          At Paya Street, we don't just serve coffee —
+          we build community. Whether you're sipping your go-to latte
+          or wearing your favorite tee, Paya Street is all about comfort,
+          creativity, and connection.
+        </p>
+
+        <p>
+          Our merch line — from cozy shirts to minimalist caps and playful
+          stickers — is designed to extend the Paya experience beyond the café.
+          Purpose meets style. Wherever you are, take a piece of Paya with you.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="community-block reverse">
+
+      <img src="./img/Purpose3.png" alt="Person holding Paya Street coffee">
+
+      <div class="text">
+
+        <span class="eyebrow">Wear the Culture</span>
+
+        <h2>Style That Speaks</h2>
+
+        <p>
+          Every item in our collection is inspired by our space —
+          minimalist, welcoming, and made for moments. We believe your
+          style should feel just as good as your first sip in the morning:
+          effortless and intentional.
+        </p>
+
+        <p>
+          By wearing Paya, you're supporting a local dream,
+          a student-friendly space, and a movement that celebrates
+          affordable quality and authentic community.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════════════ MERCH ═════════════════ -->
+  <section class="merch">
+
+    <h2>
+      PAYA STREET <br>
+      <span>Merch Highlights</span>
+    </h2>
+
+    <div class="merch-grid">
+
+      <div class="merch-card">
+
+        <img src="./img_merch/tshirt_merch.png" alt="Paya Street T-Shirt">
+
+        <h3>Paya Street T-Shirt</h3>
+
+        <p>
+          Wear the vibe. Minimal and clean, just like our coffee.
+        </p>
+
+      </div>
+
+      <div class="merch-card">
+
+        <img src="./img_merch/Caps_merch.png" alt="Branded Cap">
+
+        <h3>Branded Cap</h3>
+
+        <p>
+          Top off your look with a cap as smooth as our cold brew.
+        </p>
+
+      </div>
+
+      <div class="merch-card">
+
+        <img src="./img_merch/Sticker_merch.png" alt="Sticker Pack">
+
+        <h3>Sticker Pack</h3>
+
+        <p>
+          Stick it anywhere — your laptop, tumbler,
+          or wherever you rep Paya.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═════════════════ CONTACT ═════════════════ -->
+  <section class="contact">
+
+    <h2>Location & Contact</h2>
+
+    <div class="contact-content">
+
+      <div class="contact-image">
+
+        <video autoplay muted loop playsinline>
+          <source src="./media/Location.mp4" type="video/mp4">
+        </video>
+
+      </div>
+
+      <div class="contact-info">
+
+        <h3>Where to Find Us</h3>
+
+        <p>
+          Northern Mall (Near Quad), Doña Dolores Ave,
+          Angeles City, Pampanga
+        </p>
+
+        <h3>Operating Hours</h3>
+
+        <p>7:00 AM – 9:00 PM, Daily</p>
+
+        <h3>Contact Us</h3>
+
+        <p>
+          Email:
+          <a href="mailto:payastreetcoffee@gmail.com">
+            payastreetcoffee@gmail.com
+          </a>
+
+          <br><br>
+
+          Instagram:
+          <a href="https://www.instagram.com/payast.coffee" target="_blank">
+            @payast.coffee
+          </a>
+
+          <br><br>
+
+          Facebook:
+          <a href="https://www.facebook.com/payast.coffee" target="_blank">
+            Paya St. Coffee
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+   <!-- FOOTER -->
+  <footer class="footer">
     <a href="/index.html"><img src="/img/Footer.png" alt="Footer Logo"></a>
-  </section>
+    <p class="footer-copy">&copy; 2024 Paya Street Coffee. All rights reserved.</p>
+  </footer>
 
-  <script src="/js/script.js"></script>
+
+  <!-- JS -->
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+
+      navbar.classList.toggle("scrolled", window.scrollY > 10);
+    });
+  </script>
+
 </body>
 </html>

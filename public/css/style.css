@@ -1,120 +1,419 @@
-/* FOR FRONT DESIGN WEBSITE*/
-body {
-    margin: 0;
-    background-color: #026769; 
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #026769;
-    position: sticky;
-    top: 0;
-    transition: box-shadow 0.3s ease-in-out;
-    z-index: 1000; /* make sure it's on top */
-  }
-  
-  .navbar.scrolled {
-    box-shadow: 0 8px 20px rgba(3, 73, 78, 0.65);
-    transition: box-shadow 0.3s ease-in-out;
-  }
+/* ═══════════════════════════════════════════════════════════════
+   PAYA STREET COFFEE — MAIN STYLESHEET
+   Includes:
+   - Global styles
+   - Navbar
+   - Hero section
+   - Footer
+   - Hamburger menu
+   - Tablet responsiveness
+   - Mobile responsiveness
+═══════════════════════════════════════════════════════════════ */
 
-  .navbar .logo {
-    margin-top: 20px;
-    
-  }
+/* ── GLOBAL ───────────────────────────────────────────────── */
 
-  .navbar ul {
-    margin-top: 26px;
-    list-style: none;
-    display: flex;
-    gap: 4rem;
-    font-size: 18px;
-    font-family: "Poppins", sans-serif;
-    font-weight:100;
-    text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847); /* subtle shadow */
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  .navbar ul li {
-    display: inline;
-  }
-  .navbar ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-  }
-  
-  /* Hero section */
-  .hero {
-    text-align: center;
-    padding: 5rem 1.5rem;
-  }
-  .hero h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 5.5rem;
-    padding-top: 1rem;
-    margin-top: -5px;  
-    margin-bottom: 1rem;
-    text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
-  }
 
-  .hero hr {
-    height: 4px; /* Adjust this value to control thickness */
-    background-color: white; /* Set the desired color of the line */
-    margin-left: 6rem;
-    margin-right: 6rem;
-  }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
-  .hero h3 {
-    font-family: "Poppins", sans-serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 21px;
-    padding-top: 2rem;
-    margin-top: 20px;  
-    margin-bottom: 4rem;
-    text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
-  }
-  
-  .hero video {
-    width: 100%;              
-    max-width: 900px;        
-    height: auto;           
-    border-radius: 12px;
-    max-width: 200%;        
-    box-shadow: -7px 7px 9px rgba(4, 57, 59, 0.658); 
-  }
-  
-  /* Hide the music iframe */
+body {
+  background-color: #026769;
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════════════════ */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 1rem 2rem;
+
+  background-color: #026769;
+
+  position: sticky;
+  top: 0;
+
+  transition: box-shadow 0.3s ease-in-out;
+
+  z-index: 1000;
+}
+
+/* Scroll Shadow */
+
+.navbar.scrolled {
+  box-shadow: 0 8px 20px rgba(3, 73, 78, 0.65);
+}
+
+/* Logo */
+
+.navbar .logo {
+  margin-top: 20px;
+  z-index: 1001;
+}
+
+.navbar .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation */
+
+.navbar ul {
+  margin-top: 26px;
+
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4rem;
+
+  font-size: 18px;
+
+  font-family: "Poppins", sans-serif;
+
+  font-weight: 100;
+
+  text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847);
+
+  padding-left: 0;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+
+  transition: opacity 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════════════════════ */
+
+.hero {
+  text-align: center;
+
+  padding: 5rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+
+  font-size: 5.5rem;
+
+  padding-top: 1rem;
+
+  margin-top: -5px;
+  margin-bottom: 1rem;
+
+  line-height: 1.1;
+
+  text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
+}
+
+.hero hr {
+  height: 4px;
+
+  background-color: white;
+
+  border: none;
+
+  width: 100%;
+  max-width: 1000px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero h3 {
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-weight: 300;
+
+  font-size: 21px;
+
+  padding-top: 2rem;
+
+  margin-top: 20px;
+  margin-bottom: 4rem;
+
+  line-height: 1.8;
+
+  text-shadow: -7px 7px 9px rgba(0, 57, 55, 0.762);
+
+  max-width: 1200px;
+}
+
+.hero video {
+  max-width: 90%;  /* ← changed from 700px */
+} 
+
+.hero video {
+  width: 100%;
+  max-width: 900px;
+  max-width: 90%;  /* ← was 700px */
+
+
+  height: auto;
+
+  border-radius: 12px;
+
+  margin: 0 auto;
+
+  box-shadow: -7px 7px 9px rgba(4, 57, 59, 0.658);
+}
+
+/* Hidden Music Frame */
+
 #music-frame {
   width: 0;
   height: 0;
+
   border: 0;
+
   position: absolute;
-  left: -9999px; 
+  left: -9999px;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════ */
 
 .footer {
   display: flex;
-  justify-content: center; /* Centers horizontally if using flex */
-  align-items: center;     /* Centers vertically if needed */
-  text-align: center;      /* Centers the image inside the div */
-  width: 100%;             /* Ensures the footer spans the whole width */
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  width: 100%;
 }
+
 .footer img {
   margin-top: 15rem;
   margin-bottom: 10rem;
-  /* Increase this number to make it bigger */
-  width: 250px; 
-  /* height: auto ensures it doesn't get squished */
+
+  width: 250px;
   height: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HAMBURGER MENU
+═══════════════════════════════════════════════════════════════ */
+
+.nav-toggle {
+  display: none;
+
+  flex-direction: column;
+  gap: 5px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  margin-top: 10px;
+
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+
+  width: 26px;
+  height: 3px;
+
+  background: white;
+
+  border-radius: 3px;
+
+  transition: 0.3s;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLET RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar ul {
+    gap: 1.5rem;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero h3 {
+    font-size: 16px;
+  }
+
+  .hero hr {
+    max-width: 90%;
+  }
+
+  .hero video {
+    max-width: 700px;
+  }
+
+  .footer img {
+    margin-top: 8rem;
+    margin-bottom: 6rem;
+
+    width: 200px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar .logo {
+    margin-top: 10px;
+  }
+
+  .navbar .logo img {
+    max-height: 45px;
+  }
+
+  /* HAMBURGER */
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* MOBILE MENU */
+
+  .navbar ul {
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #026769;
+
+    padding: 2rem 0;
+
+    margin: 0;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    z-index: 999;
+  }
+
+  .navbar ul.open {
+    display: flex;
+  }
+
+  .navbar ul li {
+    display: block;
+  }
+
+  /* HERO */
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+
+    line-height: 1.2;
+
+    padding-top: 0.5rem;
+  }
+
+  .hero hr {
+    width: 100%;
+    max-width: 95%;
+
+    height: 3px;
+  }
+
+  .hero h3 {
+    font-size: 13px;
+
+    padding-top: 1rem;
+
+    margin-bottom: 2rem;
+
+    line-height: 1.7;
+  }
+
+  .hero video {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* FOOTER */
+
+  .footer img {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    width: 160px;
+  }
 }

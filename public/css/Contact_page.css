@@ -1,10 +1,14 @@
-/* CONTACT PAGE */
+/* ═════════════════ GLOBAL ═════════════════ */
 
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -12,8 +16,8 @@ body {
   background-color: #026769;
   color: #222;
 }
- /* Navbar */
- .navbar {
+/* ═══════════════════ NAVBAR ═══════════════════ */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,17 +26,20 @@ body {
   position: sticky;
   top: 0;
   transition: box-shadow 0.3s ease-in-out;
-  z-index: 1000; /* make sure it's on top */
+  z-index: 1000;
 }
 
 .navbar.scrolled {
   box-shadow: 0 8px 20px rgba(3, 73, 78, 0.65);
-  transition: box-shadow 0.3s ease-in-out;
 }
 
 .navbar .logo {
   margin-top: 20px;
-  
+}
+
+.navbar .logo img {
+  max-height: 60px;
+  width: auto;
 }
 
 .navbar ul {
@@ -42,63 +49,176 @@ body {
   gap: 4rem;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-  font-weight:100;
-  text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847); /* subtle shadow */
-
+  font-weight: 100;
+  text-shadow: -3px 2px 7px rgba(2, 45, 43, 0.847);
+  padding: 0;
 }
+
 .navbar ul li {
   display: inline;
 }
+
 .navbar ul li a {
   text-decoration: none;
   color: white;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-/* HERO SECTION */
+.navbar ul li a:hover {
+  opacity: 0.8;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* REMOVE RANDOM BLACK ICON */
+
+.menu-toggle,
+.fa-bars {
+    display: none !important;
+}
+
+/* ═════════════════ REVEAL ANIMATIONS ═════════════════ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* LEFT ANIMATION */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* RIGHT ANIMATION */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SCALE ANIMATION */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ═════════════════ HERO SECTION ═════════════════ */
+
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   background-color: #026769;
+
   padding: 50px 20px;
+
   gap: 25px;
-  font-family: "Poppins", sans-serif;
 }
 
-/* First white box (Title & Subtitle) */
+/* HERO BOX */
+
 .hero-box {
   background-color: #ffffff;
+
   border: 2px solid #004f50;
+
   border-radius: 12px;
+
   padding: 35px 50px;
+
   text-align: center;
+
   max-width: 750px;
+
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .hero-box h1 {
   font-weight: 700;
-  font-size: 1.9rem;
+  font-size: 2rem;
+
   color: #004f50;
+
   margin-bottom: 10px;
 }
 
 .hero-box p {
   font-size: 1rem;
+
   color: #004142;
+
   font-style: italic;
 }
 
-/* Second white box (Buttons) */
+/* HERO BUTTONS */
+
 .hero-buttons-box {
   background-color: #ffffff;
+
   border: 2px solid #004f50;
+
   border-radius: 12px;
+
   padding: 20px 40px;
+
   display: flex;
   justify-content: center;
+
   gap: 25px;
+
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -106,14 +226,20 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
+
   border-radius: 8px;
+
   cursor: pointer;
+
   transition: all 0.3s ease;
+
   padding: 10px 25px;
+
   border: 2px solid #0e7477;
 }
 
-/* Buttons */
+/* BUTTONS */
+
 .btn-primary {
   background-color: #0e7477;
   color: #fff;
@@ -134,73 +260,87 @@ body {
   color: #fff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-box, .hero-buttons-box {
-    width: 90%;
-    padding: 25px;
-  }
+/* ═════════════════ CONTACT SECTION ═════════════════ */
 
-  .hero-buttons-box {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-/* CONTACT SECTION */
 .contact-wrapper {
   background-color: #026769;
-  padding: 60px 0;
+
+  padding: 60px 20px;
 }
 
 .contact-container {
   display: flex;
   justify-content: center;
   align-items: stretch;
+
   max-width: 1100px;
+
   margin: 0 auto;
+
   background-color: #ffffff;
+
   border-radius: 10px;
+
   overflow: hidden;
+
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* LEFT SIDE FORM */
+/* LEFT SIDE */
+
 .contact-form {
   flex: 1;
+
   padding: 50px;
 }
 
 .contact-form h2 {
   color: #0e7477;
+
   font-weight: 700;
+
   margin-bottom: 10px;
+
   font-size: 2rem;
 }
 
 .contact-form p {
   color: #555;
+
   font-size: 15px;
+
   margin-bottom: 25px;
 }
 
 .contact-form label {
   display: block;
+
   font-weight: 600;
+
   margin-bottom: 5px;
-  color:#026769;
+
+  color: #026769;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
+
   padding: 12px 15px;
+
   border: 2px solid #0e7477;
+
   border-radius: 8px;
+
   margin-bottom: 20px;
+
   font-size: 15px;
+
   outline: none;
+
   transition: 0.3s;
+
+  font-family: inherit;
 }
 
 .contact-form input:focus,
@@ -208,17 +348,31 @@ body {
   border-color: #004f50;
 }
 
+.contact-form textarea {
+  resize: vertical;
+}
+
 /* BUTTON */
+
 .btn-send {
   background-color: #0e7477;
+
   color: #fff;
+
   border: none;
+
   border-radius: 8px;
+
   padding: 12px 0;
+
   width: 100%;
+
   font-size: 16px;
+
   font-weight: 600;
+
   cursor: pointer;
+
   transition: 0.3s ease;
 }
 
@@ -227,62 +381,80 @@ body {
 }
 
 /* RIGHT SIDE IMAGE */
+
 .contact-image {
   flex: 1;
+
   background-color: #0e7477;
 }
 
 .contact-image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
-/* MAP */
-#map {
-  max-width: 900px;
-  height: 450px;
-  margin: 0 auto;
-  border: 2px solid #004f50;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
+/* ═════════════════ MAP SECTION ═════════════════ */
 
 .map-section {
   text-align: center;
-  margin: 60px auto;
-  max-width: 1000px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 15px;  
+
   margin: 80px auto;
 
+  max-width: 1000px;
+
+  padding: 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 15px;
 }
 
 .map-section h2 {
   font-size: 1.8rem;
+
   color: #004f50;
+
   margin-bottom: 15px;
-  font-family: "Poppins", sans-serif;
 }
+
+#map {
+  width: 100%;
+  height: 450px;
+
+  border: 2px solid #004f50;
+
+  border-radius: 10px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* LEAFLET */
 
 .leaflet-control-geocoder {
   background-color: white;
+
   border-radius: 8px;
+
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
   font-family: "Poppins", sans-serif;
 }
+
 .leaflet-control-geocoder input {
   border: none;
   outline: none;
   font-size: 14px;
 }
 
+/* ═════════════════ FOOTER ═════════════════ */
 
-/* FOOTER */
 .footer {
   text-align: center;
+
   padding: 3rem 0;
+
   background-color: #026769;
 }
 
@@ -290,27 +462,55 @@ body {
   width: 180px;
 }
 
-/* RESPONSIVE */
+/* ═════════════════ TABLET ═════════════════ */
+
 @media (max-width: 991px) {
+
   .contact-container {
     flex-direction: column;
   }
 
   .contact-image img {
-    height: 300px;
-  }
-  .nav-links.active {
-    display: flex;
+    height: 350px;
   }
 
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    color: white;
-    font-size: 1.5rem;
+  .nav-links {
+    gap: 2rem;
   }
+
 }
+/* ═════════════════ MOBILE NAV ═════════════════ */
 
-.menu-toggle {
-  display: none;
+@media (max-width: 768px) {
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+
+        flex-direction: column;
+
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        background: #026769;
+
+        padding: 25px 0;
+
+        text-align: center;
+
+        gap: 1.5rem;
+
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
 }

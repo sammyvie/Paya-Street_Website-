@@ -1,0 +1,163 @@
+/* ═══════════════════════════════════════════════════════════════
+   Paya Street Coffee — Shared Animations
+   Add this file as /css/animations.css
+   and link it on every page: <link rel="stylesheet" href="/css/animations.css">
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Fade-in-up reveal ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Card hover lift ─────────────────────────────────────────── */
+.card,
+.product-card,
+#captions {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1); /* keep reveal transition */
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: -7px 14px 28px rgba(1, 55, 57, 0.55);
+}
+
+.product-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+}
+
+#captions:hover img {
+  transform: scale(1.03);
+  transition: transform 0.4s ease;
+}
+
+/* ── Navbar smooth shadow on scroll ─────────────────────────── */
+.navbar {
+  transition: box-shadow 0.35s ease !important;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 8px 24px rgba(3, 73, 78, 0.65) !important;
+}
+
+/* ── Nav link underline slide-in ────────────────────────────── */
+.navbar ul li a {
+  position: relative;
+}
+
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+/* ── Button pulse on hover ───────────────────────────────────── */
+.hero .btn,
+.btn-send,
+#submit-btn,
+.btn-primary,
+.btn-secondary,
+.add-to-cart {
+  transition: all 0.25s ease, transform 0.2s ease !important;
+}
+
+.hero .btn:hover,
+.btn-send:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.add-to-cart:hover {
+  transform: translateY(-2px) !important;
+}
+
+#submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Image subtle zoom on hover (product & merch) ───────────── */
+.card img,
+.merch-grid img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card img:hover,
+.merch-grid img:hover {
+  transform: scale(1.04);
+}
+
+/* ── Community block image hover ────────────────────────────── */
+.community-block img {
+  transition: transform 0.4s ease;
+}
+
+.community-block img:hover {
+  transform: scale(1.02);
+}
+
+/* ── Gallery video border glow on hover ─────────────────────── */
+.gallery-video {
+  transition: box-shadow 0.35s ease;
+}
+
+.gallery-video:hover {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Search bar focus glow ───────────────────────────────────── */
+.search-bar input {
+  transition: box-shadow 0.25s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 187, 186, 0.45);
+}
+
+/* ── Contact form fields focus ───────────────────────────────── */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(14, 116, 119, 0.25);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* ── Respect reduced-motion preference ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .card,
+  .product-card,
+  #captions,
+  .community-block img,
+  .card img,
+  .merch-grid img,
+  .gallery-video,
+  .navbar ul li a::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
